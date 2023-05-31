@@ -27,7 +27,7 @@ export default function Index() {
     // @ts-expect-error
     window.location.pathname = window.webos 
       ? window.location.pathname.replace("index.html", "songs.html")
-      : "/songs.html";
+      : "/songs";
   }
 
   return (
