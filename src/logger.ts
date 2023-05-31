@@ -5,7 +5,7 @@ type logFunc = (...any: any[]) => void;
 let info: logFunc, error: logFunc;
 
 async function loadTauri() {
-    let module = await import("tauri-plugin-log-api")
+    let module = await import("@tauri-apps/plugin-log")
     info = module.info;
     error = module.error;
     
