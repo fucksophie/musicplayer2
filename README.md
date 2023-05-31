@@ -9,5 +9,5 @@ Supports:
 
 
 ## To build
-Just run `npm i`, then `npm run dev`. You must have rust & cargo installed, webkitGTK and whatnot else.  
+Just run `npm i`, then `npm run tauri dev`. You must have rust & cargo installed, webkitGTK and whatnot else.  
 Check the [tauri V2 docs](https://next--tauri.netlify.app/next/guides/building/) for more information on building.

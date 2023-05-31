@@ -1,0 +1,13 @@
+{
+  "id": "lv.onefourone.musicplayer2",
+  "version": "1.0.0",
+  "vendor": "3.141.lv",
+  "type": "web",
+  "main": "index.html",
+  "title": "musicplayer2",
+  "icon": "icon.png",
+  "requiredPermissions": [
+    "time.query",
+    "activity.operation"
+  ]
+}

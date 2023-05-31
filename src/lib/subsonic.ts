@@ -3,7 +3,7 @@
 import localforage from 'localforage';
 import md5 from './md5';
 
-import { trace, info, error, attachConsole } from "tauri-plugin-log-api";
+import { error, info } from "../logger";
 
 interface Authenication {
   username?: string;
@@ -26,8 +26,6 @@ export default class Subsonic {
     this.authenication.password = password;
 
     this.client = 'subsonic-ts';
-
-    this.test();
   }
 
   private buildURL(endpoint: string, options: Record<string, any> = {}) {
@@ -46,7 +44,7 @@ export default class Subsonic {
   private async createRequest(
     endpoint: string,
     options: Record<string, any> = {},
-    type: 'json' | 'blob' = 'json'
+    type: 'json' | 'blob' | 'raw' = 'json'
   ) {
     let req;
     try {
@@ -56,6 +54,7 @@ export default class Subsonic {
       return;
     }
     
+    if(type == "raw") return req;
     if (type === 'json') {
       return (await req.json())['subsonic-response'];
     }
@@ -128,7 +127,7 @@ export default class Subsonic {
   }
 
   async test() {
-    const response = await this.createRequest('ping');
+    const response = await this.createRequest('ping', {}, "raw");
     if (response.status === 'ok') return true;
     return false;
   }

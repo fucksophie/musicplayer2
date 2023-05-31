@@ -1,7 +1,7 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-restricted-syntax */
 import md5 from './md5';
-import { trace, info, error, attachConsole } from "tauri-plugin-log-api";
+import {error, info} from "../logger";
 
 const apiKey = '5453fd5264c2114ff3dcd9bd66baa69e';
 const sharedKey = '63ee9194df879a2848716d017e016b40';

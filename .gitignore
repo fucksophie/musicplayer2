@@ -25,3 +25,6 @@ dist-ssr
 src-tauri/target
 node_modules
 src-tauri/gen
+webos/assets
+webos/*.html
+webos/*.ipk
