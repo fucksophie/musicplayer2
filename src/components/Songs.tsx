@@ -126,7 +126,6 @@ export default function Songs() {
       <Bar />
       <input
         className="w-full bg-slate-200 p-2 dark:bg-zinc-500"
-        defaultValue="Joeyy"
         onChange={() => updateSongList('title', false)}
         ref={inputRef}
         placeholder="search for a song"
