@@ -68,6 +68,7 @@ export default function Settings() {
               if (phase.current === 0) {
                 const token = await generateToken();
                 localStorage.temporaryToken = token;
+                //@ts-expect-error
                 if(window.__TAURI__) {
                   //@ts-expect-error
                   window.__TAURI__.shell.open(`https://last.fm/api/auth/?api_key=${lastFmApiKey}&token=${token}`);
