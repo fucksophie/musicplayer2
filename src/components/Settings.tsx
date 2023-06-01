@@ -33,15 +33,15 @@ export default function Settings() {
   }, [lUser, setlUser]);
 
   return (
-    <div className="dark:text-zinc-300 h-screen dark:bg-zinc-700">
+    <div className="text-textColor h-screen bg-innerBackground">
       <Bar />
       <table className="w-full">
-        <thead className="border-t-2 border-slate-400 dark:border-zinc-500">
-          <th className="border-r-2 border-b-2 border-slate-400 dark:border-zinc-500">appearance</th>
-          <th className=" border-b-2 border-slate-400 dark:border-zinc-500">integrations</th>
+        <thead className="border-t-2 border-containerBorder">
+          <th className="border-r-2 border-b-2 border-containerBorder">appearance</th>
+          <th className=" border-b-2 border-containerBorder">integrations</th>
         </thead>
         <tr className="h-full">
-          <td className="border-r-2 border-slate-400 p-1 dark:border-zinc-500">
+          <td className="border-r-2 border-containerBorder p-1">
             <span>themes:</span>
             <br/>
             <label>
@@ -58,11 +58,11 @@ export default function Settings() {
               />
             </label>
           </td>
-          <td className="border-r-2 border-slate-400 p-1 dark:border-zinc-500">
+          <td className="border-r-2 border-containerBorder p-1">
             <div>lastfm</div>
             <button
               type="button"
-              className="mb-2 p-1 rounded border-slate-300  dark:bg-zinc-600 dark:border-zinc-400 dark:hover:border-zinc-500 transition hover:border-slate-400 border-2"
+              className="mb-2 p-1 rounded bg-innerBackground border-innerBorder hover:border-hoverInnerBorder transition border-2"
               onClick={async (e) => {
                 // TODO: signing out is not yet implemented
                 /*if (localStorage.lastfmSession) {

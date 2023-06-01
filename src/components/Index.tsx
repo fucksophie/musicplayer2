@@ -31,12 +31,12 @@ export default function Index() {
   }
 
   return (
-    <div className="flex items-center justify-center h-screen dark:bg-zinc-600">
-      <div className="bg-slate-200 p-2 rounded border-2 border-slate-400 dark:border-zinc-500 dark:bg-zinc-700 dark:border-slate-500">
-        <div className="text-xl mb-1 dark:text-zinc-300">login:</div>
+    <div className="bg-background flex items-center justify-center h-screen">
+      <div className="bg-innerBackground p-2 rounded border-2 border-containerBorder text-textColor">
+        <div className="text-xl mb-1">login:</div>
         <input
           type="text"
-          className="mb-1 p-1 rounded border-slate-300 border-2 dark:border-zinc-500"
+          className="mb-1 p-1 rounded border-innerBorder border-2 text-inputColor"
           placeholder="http"
           ref={http}
           defaultValue={localStorage.http}
@@ -44,7 +44,7 @@ export default function Index() {
         <br />
         <input
           type="text"
-          className="mb-1 p-1 rounded border-slate-300 dark:border-zinc-500 border-2"
+          className="mb-1 p-1 rounded border-innerBorder border-2 text-inputColor"
           placeholder="username"
           ref={username}
           defaultValue={localStorage.username}
@@ -52,7 +52,7 @@ export default function Index() {
         <br />
         <input
           type="password"
-          className=" mb-2 p-1 rounded border-slate-300 dark:border-zinc-500 border-2"
+          className="mb-2 p-1 rounded border-innerBorder border-2 text-inputColor"
           placeholder="password"
           ref={password}
           defaultValue={localStorage.password}
@@ -60,7 +60,7 @@ export default function Index() {
         <br />
 
         <button
-          className="p-1 dark:text-zinc-300 rounded border-slate-300 border-2 dark:border-zinc-500 hover:border-slate-500 dark:hover:border-zinc-600 transition"
+          className="p-1 rounded border-innerBorder hover:border-hoverInnerBorder border-2 transition"
           onClick={login}
           type="button"
         >
@@ -68,7 +68,7 @@ export default function Index() {
         </button>
         <br/>
         <button
-          className="mt-2 p-1 dark:text-zinc-300 rounded border-slate-300 border-2 dark:border-zinc-500 hover:border-slate-500 dark:hover:border-zinc-600 transition"
+          className="mt-2 p-1 rounded border-innerBorder hover:border-hoverInnerBorder border-2 transition"
           onClick={async () => {
             await localforage.removeItem("songs");
           }}

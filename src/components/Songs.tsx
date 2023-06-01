@@ -62,7 +62,7 @@ function Row(allSongsA: any[], selectedTrackIdA: any[], { index }: { index: numb
   return (
     <tr
       key={z.id}
-      className="hover:bg-slate-200 dark:hover:bg-zinc-800 transition rounded cursor-pointer"
+      className="hover:bg-innerInnerBackground transition rounded cursor-pointer"
       onClick={() => setSelectedTrackId(z.id)}
     >
       <td className="h-[12px]">{z.title}</td>
@@ -120,12 +120,12 @@ export default function Songs() {
         flexDirection: 'column',
         height: '110vh',
       }}
-      className="dark:bg-zinc-700 dark:text-zinc-300"
+      className="bg-innerBackground text-textColor"
     >
       <style>{tableStyle}</style>
       <Bar />
       <input
-        className="w-full bg-slate-200 p-2 dark:bg-zinc-500"
+        className="w-full bg-innerInnerBackground text-textColor p-2"
         onChange={() => updateSongList('title', false)}
         ref={inputRef}
         placeholder="search for a song"
