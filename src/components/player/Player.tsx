@@ -138,7 +138,7 @@ function AudioPlayer({
   };
 
   return (
-    <div className="left-0 bottom-0 absolute bg-innerBorder flex h-20 w-full relative">
+    <div className="left-0 bottom-0 absolute bg-innerInnerBackground flex h-20 w-full relative">
       <Controls
         {...{
           audioRef,

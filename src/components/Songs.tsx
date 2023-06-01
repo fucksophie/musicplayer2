@@ -120,12 +120,12 @@ export default function Songs() {
         flexDirection: 'column',
         height: '110vh',
       }}
-      className="bg-innerBackground text-textColor"
+      className="bg-background text-textColor"
     >
       <style>{tableStyle}</style>
       <Bar />
       <input
-        className="w-full bg-innerInnerBackground text-textColor p-2"
+        className="w-full bg-innerBackground text-textColor p-2"
         onChange={() => updateSongList('title', false)}
         ref={inputRef}
         placeholder="search for a song"

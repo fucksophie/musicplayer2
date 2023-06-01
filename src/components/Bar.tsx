@@ -1,6 +1,6 @@
 export default function Bar() {
   return (
-    <div className="w-full text-textColor bg-innerInnerBackground h-10 flex gap-2 p-2 items-center">
+    <div className="w-full text-textColor bg-background h-10 flex gap-2 p-2 items-center">
       <div>
         <a className="mr-2" href="/">
           musicplayer
