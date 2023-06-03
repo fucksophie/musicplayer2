@@ -36,7 +36,7 @@ export default function Index() {
         <div className="text-xl mb-1">login:</div>
         <input
           type="text"
-          className="mb-1 p-1 rounded border-innerBorder border-2 text-inputColor"
+          className="mb-1 p-1 rounded border-innerBorder border-2 text-textColor"
           placeholder="http"
           ref={http}
           defaultValue={localStorage.http}
@@ -44,7 +44,7 @@ export default function Index() {
         <br />
         <input
           type="text"
-          className="mb-1 p-1 rounded border-innerBorder border-2 text-inputColor"
+          className="mb-1 p-1 rounded border-innerBorder border-2 text-textColor"
           placeholder="username"
           ref={username}
           defaultValue={localStorage.username}
@@ -52,7 +52,7 @@ export default function Index() {
         <br />
         <input
           type="password"
-          className="mb-2 p-1 rounded border-innerBorder border-2 text-inputColor"
+          className="mb-2 p-1 rounded border-innerBorder border-2 text-textColor"
           placeholder="password"
           ref={password}
           defaultValue={localStorage.password}

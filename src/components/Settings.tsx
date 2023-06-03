@@ -181,8 +181,8 @@ export default function Settings() {
   let fai = "fa-4x w-9 h-9 rounded border-2 rounded-xl border-innerBorder hover:border-hoverInnerBorder transition p-6 bg-innerInnerBackground";
   let buttonClass = "rounded-xl border-2 border-innerBorder bg-innerInnerBackground hover:border-hoverInnerBorder transition p-2"
 
-  const integrationRef = useRef(null);
-  const appearanceRef = useRef(null);
+  const integrationRef = useRef<HTMLDivElement>(null);
+  const appearanceRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="text-textColor h-screen bg-innerBackground">
@@ -194,18 +194,18 @@ export default function Settings() {
             icon={faCogs}
             className={fai}
             onClick={() => {
-              if(!appearanceRef.current.className.includes("hidden")) 
-                appearanceRef.current.className += " hidden";
-              integrationRef.current.className = integrationRef.current.className.replace(" hidden", "");
+              if(!appearanceRef.current!.className.includes("hidden")) 
+                appearanceRef.current!.className += " hidden";
+              integrationRef.current!.className = integrationRef.current!.className.replace(" hidden", "");
             }}
           />
           <FontAwesomeIcon 
             icon={faPalette}
             className={fai+" mt-2"}
             onClick={() => {
-              if(!integrationRef.current.className.includes("hidden")) 
-                integrationRef.current.className += " hidden";
-              appearanceRef.current.className = integrationRef.current.className.replace(" hidden", "");
+              if(!integrationRef.current!.className.includes("hidden")) 
+                integrationRef.current!.className += " hidden";
+              appearanceRef.current!.className = integrationRef.current!.className.replace(" hidden", "");
             }}
           />
         </div>
@@ -213,7 +213,7 @@ export default function Settings() {
           <h1 className='text-4xl'>integrations</h1>
           <Integrations {...{buttonClass}}></Integrations>
         </div>  
-        <div className="m-2 hidden " ref={appearanceRef}>
+        <div className="m-2 hidden" ref={appearanceRef}>
           <h1 className='text-4xl'>appearance</h1>
           <Appearance {...{buttonClass}}></Appearance>
         </div>  
