@@ -26,7 +26,7 @@ function ProgressBar({
 
   return (
     <div className="w-full flex align-center grow pr-1 items-center">
-      <span className="text-white pr-1">{formatTime(timeProgress)}</span>
+      <span className="text-inputColor pr-1">{formatTime(timeProgress)}</span>
       <input
         type="range"
         ref={progressBarRef}
@@ -34,7 +34,7 @@ function ProgressBar({
         className="w-full"
         onChange={handleProgressChange}
       />
-      <span className="text-white pl-1">{formatTime(duration)}</span>
+      <span className="text-inputColor pl-1">{formatTime(duration)}</span>
     </div>
   );
 }

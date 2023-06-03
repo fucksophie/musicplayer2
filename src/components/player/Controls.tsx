@@ -105,27 +105,27 @@ function Controls({
         <div className="flex items-center">
           <FontAwesomeIcon
             icon={faBackwardStep}
-            className="fa-2x text-white mx-2"
+            className="fa-2x text-inputColor mx-2"
             onClick={handlePrevious}
           />
           <FontAwesomeIcon
             icon={faBackward}
-            className="fa-2x text-white mx-2"
+            className="fa-2x text-inputColor mx-2"
             onClick={skipBackward}
           />
           <FontAwesomeIcon
             icon={isPlaying ? faPause : faPlay}
-            className="fa-3x text-white mx-2"
+            className="fa-3x text-inputColor mx-2"
             onClick={togglePlayPause}
           />
           <FontAwesomeIcon
             icon={faForward}
-            className="fa-2x text-white mx-2"
+            className="fa-2x text-inputColor mx-2"
             onClick={skipForward}
           />
           <FontAwesomeIcon
             icon={faForwardStep}
-            className="fa-2x text-white mx-2"
+            className="fa-2x text-inputColor mx-2"
             onClick={handleNext}
           />
         </div>
@@ -144,13 +144,13 @@ function Controls({
         <FontAwesomeIcon
           icon={faRepeat}
           className={`${
-            repeating ? 'text-green-400' : 'text-red-400'
+            repeating ? 'text-inputColor-400' : 'text-inputColor'
           } fa-xl grow`}
           onClick={() => setRepeating((state: boolean) => !state)}
         />
         <FontAwesomeIcon
           icon={faShuffle}
-          className="fa-xl text-white grow"
+          className="fa-xl text-inputColor grow"
           onClick={() => shuffle()}
         />
       </div>
