@@ -137,6 +137,7 @@ function AudioPlayer({
     }
 
     if(localStorage.discordRPCEnabled) {
+      // @ts-expect-error
       await window.__TAURI__.invoke("set_discord_rpc", {
         details: `${currentTrack.artist} (on ${currentTrack.album})`, 
         state: currentTrack.title,
