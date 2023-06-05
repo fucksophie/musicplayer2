@@ -135,6 +135,20 @@ function AudioPlayer({
         localStorage.lastfmScrobbling
       );
     }
+
+    if(localStorage.discordRPCEnabled) {
+      await window.__TAURI__.invoke("set_discord_rpc", {
+        details: `${currentTrack.artist} (on ${currentTrack.album})`, 
+        state: currentTrack.title,
+        image: "mp2" 
+        // (IMPORTANT) !! TODO !!: Implement some kind of image caching API here
+        // Discord limits the key to 256 characters, so we can't use base64,
+        // and when I send the getCover API url, it'll include the hash & salt
+        // leaking your password.
+
+        // Upstream (gonic): https://github.com/sentriz/gonic/issues/332
+      }); 
+    }
   };
 
   return (

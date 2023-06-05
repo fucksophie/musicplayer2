@@ -30,6 +30,10 @@ function Integrations({buttonClass}: {buttonClass:string}) {
     localStorage.lastfmScrobbling === 'true'
   );
   
+  const [discordRPCEnabled, setDiscordRPCEnabled] = useState(
+    localStorage.discordRPCEnabled === 'true'
+  );
+  
   useEffect(() => {
     async function fetchData() {
       if (localStorage.lastfmSession && !lUser) {
@@ -118,7 +122,22 @@ function Integrations({buttonClass}: {buttonClass:string}) {
             if(window.__TAURI__) {
               return <>
                 <h2 className='text-2xl'>discordRPC</h2>
-                <div>Unfinished</div>
+                <div>
+                  enable discordRPC:{" "}
+                  <input 
+                    type="checkbox"
+                    defaultChecked={discordRPCEnabled}
+                    onChange={() => {
+                      localStorage.discordRPCEnabled =
+                        localStorage.discordRPCEnabled !== 'true';
+                      setDiscordRPCEnabled((prev) => !prev);
+                      setTimeout(() => {
+                        window.location.reload();
+                      }, 1000);
+                    }}
+                    
+                  />
+                </div>
               </>
             }
           })()

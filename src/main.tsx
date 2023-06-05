@@ -19,7 +19,6 @@ import Songs from './components/Songs';
 import config from './twind.config';
 
 install(config);
-
 async function verifySubsonicAuthenication() {
   const subsonic = new Subsonic(
     localStorage.http,
@@ -82,3 +81,17 @@ createRoot(document.getElementById('root')!).render(
     <Toaster />
   </>
 );
+
+
+if(localStorage.discordRPCEnabled == "true" && window.__TAURI__) {
+  // INFO: start_discord_rpc blocks the main thread by default,
+  // so `await` just adds more delays here.
+  window.__TAURI__.invoke("start_discord_rpc");
+  window.__TAURI__.invoke("set_discord_rpc", {
+    details: "On page", 
+    state: (location.pathname.substring(1)||"login"),
+    image: "mp2"
+  }); 
+} else {
+  if(window.__TAURI__) window.__TAURI__.invoke("clear_actvitiy");
+}
