@@ -15,7 +15,7 @@ import Subsonic from './lib/subsonic';
 import Index from './components/Index';
 import Settings from './components/Settings';
 import Songs from './components/Songs';
-
+import Albums from './components/Albums'
 import config from './twind.config';
 
 install(config);
@@ -50,10 +50,14 @@ let routes = [
     path: '/songs',
     element: <Songs />,
     loader: () => {info("loader - songs"); return null;}
+  },
+  {
+    path: '/albums',
+    element: <Albums />,
+    loader: () => {info("loader - albums"); return null;}
   }
 ];
 
-// @ts-expect-error
 if(window.webos) {
   basename = "/media/developer/apps/usr/palm/applications/lv.onefourone.musicplayer2/"
   let indexPath = routes.find(z => z.path == "/")!;

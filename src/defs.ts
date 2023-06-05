@@ -5,7 +5,8 @@ declare global {
             shell: {
                 open: (url: string) => void;
             }
-        }; 
+        };
+        webos?: {}; 
     }
 }
 

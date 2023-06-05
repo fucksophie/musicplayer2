@@ -1,13 +1,13 @@
 import Bar from "./Bar";
 import ColumnListing from "./ColumnListing"
 import Player from './player/Player';
-import {useState} from "react";
+import {useState,useEffect} from "react";
 
-export default function Songs() {
+export default function Albums() {
     const allSongs = useState<any[]>([]);
     const selectedTrackId = useState('');
-
-    function shuffleSongs() {
+    
+    function shuffleAlbums() {
         allSongs[1](
           allSongs[0]
             .map((value) => ({ value, sort: Math.random() }))
@@ -15,6 +15,14 @@ export default function Songs() {
             .map(({ value }) => value)
         );
     }
+
+    useEffect(() => {
+        let sorted = [...new Map(allSongs[0].map(item =>
+            [item.album, item])).values()];
+        if(sorted.length !== allSongs[0].length) {
+            allSongs[1](sorted)
+        }
+    }, [allSongs])
 
     return <>
         <div
@@ -27,12 +35,8 @@ export default function Songs() {
             >
                 <Bar/>
                 <ColumnListing cols={[
-                        "title", 
                         "artist", 
                         "album", 
-                        "bitRate", 
-                        "suffix", 
-                        "duration"
                     ]} 
                     sortedElement="title"
                     selectedTrackId={selectedTrackId}
@@ -42,7 +46,7 @@ export default function Songs() {
                     tracks={allSongs[0] || []}
                     trackForced={selectedTrackId[0]}
                     // eslint-disable-next-line react/jsx-no-bind
-                    shuffle={shuffleSongs}
+                    shuffle={shuffleAlbums}
                 />
         </div>
     </>;

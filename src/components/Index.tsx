@@ -24,7 +24,6 @@ export default function Index() {
     localStorage.http = http.current.value;
     localStorage.username = username.current.value;
     localStorage.password = password.current.value;
-    // @ts-expect-error
     window.location.pathname = window.webos 
       ? window.location.pathname.replace("index.html", "songs.html")
       : "/songs";
