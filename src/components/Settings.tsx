@@ -51,9 +51,7 @@ function Integrations({buttonClass}: {buttonClass:string}) {
             if (phase.current === 0) {
               const token = await generateToken();
               localStorage.temporaryToken = token;
-              //@ts-expect-error
               if(window.__TAURI__) {
-                //@ts-expect-error
                 window.__TAURI__.shell.open(`https://last.fm/api/auth/?api_key=${lastFmApiKey}&token=${token}`);
               } else {
                 window.open(`https://last.fm/api/auth/?api_key=${lastFmApiKey}&token=${token}`, "_blank")
@@ -118,7 +116,6 @@ function Integrations({buttonClass}: {buttonClass:string}) {
         </div>
         {
           (() => {
-            //@ts-expect-error
             if(window.__TAURI__) {
               return <>
                 <h2 className='text-2xl'>discordRPC</h2>

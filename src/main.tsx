@@ -4,7 +4,7 @@ import {
   RouterProvider,
   redirect,
 } from 'react-router-dom';
-
+import DiscordRPC from './lib/DiscordRPC'
 import { error, info } from "./logger";
 
 import { install } from '@twind/core';
@@ -82,20 +82,16 @@ createRoot(document.getElementById('root')!).render(
   </>
 );
 
-// @ts-expect-error
 if(localStorage.discordRPCEnabled == "true" && window.__TAURI__) {
   // INFO: start_discord_rpc blocks the main thread by default,
   // so `await` just adds more delays here.
 
-  // @ts-expect-error
-  window.__TAURI__.invoke("start_discord_rpc");
-  // @ts-expect-error
-  window.__TAURI__.invoke("set_discord_rpc", {
+  DiscordRPC.start();
+  DiscordRPC.queueActivity({
     details: "On page", 
     state: (location.pathname.substring(1)||"login"),
     image: "mp2"
-  }); 
+  });
 } else {
-  // @ts-expect-error
-  if(window.__TAURI__) window.__TAURI__.invoke("clear_actvitiy");
+  if(window.__TAURI__) DiscordRPC.clearActivity();
 }

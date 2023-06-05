@@ -6,6 +6,7 @@ import ProgressBar from './ProgressBar';
 import DisplayTrack from './DisplayTrack';
 import Subsonic from '../../lib/subsonic';
 import { updateNowPlaying, scrobble } from '../../lib/LastFM';
+import DiscordRPC from '../../lib/DiscordRPC'
 
 const subsonic = new Subsonic(
   localStorage.http,
@@ -136,9 +137,8 @@ function AudioPlayer({
       );
     }
 
-    if(localStorage.discordRPCEnabled) {
-      // @ts-expect-error
-      await window.__TAURI__.invoke("set_discord_rpc", {
+    if(localStorage.discordRPCEnabled == "true" && window.__TAURI__) {
+      DiscordRPC.queueActivity({
         details: `${currentTrack.artist} (on ${currentTrack.album})`, 
         state: currentTrack.title,
         image: "mp2" 
